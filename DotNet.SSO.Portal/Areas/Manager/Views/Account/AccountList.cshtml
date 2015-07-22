@@ -1,0 +1,138 @@
+﻿@{
+    ViewBag.Title = "单点登录帐号管理";
+    Layout = "~/Views/Shared/_LayoutList.cshtml";
+}
+@model DotNet.SSO.Model.PagingModel<DotNet.SSO.Model.Account>
+@using DotNet.SSO.Portal
+<div class="listbox">
+    <div class="pagetitle">
+        单点登录帐号管理</div>
+    <div class="buttonz">
+        <a href="@Url.Content("/Manager/Account/AccountAdd")" class="btn btn-success btn-sm">
+            添加单点登录帐号</a> @* <a href="javascript:;" class="btn btn-danger btn-sm" onclick="delall_user();">批量删除</a>*@
+    </div>
+    <div class="search_row">
+        <div class="form-inline">
+            <form action="@Url.Content("/Manager/Account/AccountSearch")" method="post">
+            <div class="form-group">
+                <label>
+                    OpenId：</label>
+                <input type="text" class="form-control  input-sm" id="openId" name="openId" />
+            </div>
+            <div class="form-group">
+                <label>
+                    登录名：</label>
+                <input type="text" class="form-control  input-sm" id="loginName" name="loginName" />
+            </div>
+            <div class="form-group">
+                <label>
+                    手机号码：</label>
+                <input type="text" class="form-control  input-sm" id="mobile" name="mobile" />
+            </div>
+            <div class="form-group">
+                <label>
+                    email：</label>
+                <input type="text" class="form-control  input-sm" id="email" name="email" />
+            </div>
+            <div class="form-group">
+                <label>
+                    创建域：</label>
+               @Html.DropDownList("submitDomainId", ViewData["submitDomainId"] as SelectList, new { @class = "form-control  input-sm" })
+            </div>
+            <input id="btnSubmit" type="submit" value="搜索" class="btn btn-default  btn-sm" />
+            </form>
+        </div>
+    </div>
+    @{
+        string currentUrl = DotNet.SSO.BllUtility.ParamHelper.GetInstance().GetRequestParamWithOutPage();
+        int pageIndex = DotNet.Utils.Untility.ConvertFactory.ToInt32(HttpUtility.UrlEncode(Request["page"]), 1);
+        <table class="table table-bordered table-condensed">
+            <tr>
+                <th width="1%">
+                    <input type="checkbox" id="checkall">
+                </th>
+                <th width="5%">
+                    ID
+                </th>
+                <th width="15%">
+                    OpenId
+                </th>
+                <th width="10%">
+                    登录帐号
+                </th>
+                <th width="10%">
+                    手机号码
+                </th>
+                <th width="5%">
+                    绑定手机
+                </th>
+                <th width="15%">
+                    Email地址
+                </th>
+                <th width="5%">
+                    绑定Email
+                </th>
+                <th width="15%">
+                    提交时间
+                </th>
+                <th width="19%">
+                    操作
+                </th>
+            </tr>
+            @foreach (var item in Model.Data)
+            {
+                <tr>
+                    <td class="text-center">
+                        <input type="checkbox" name="checklist" id="chk_@item.AccountId" value="@item.AccountId" />
+                    </td>
+                    <td class="text-center">
+                        @item.AccountId
+                    </td>
+                    <td class="text-center">
+                        @item.OpenId
+                    </td>
+                    <td class="text-center">
+                        @item.LoginName
+                    </td>
+                    <td class="text-center">
+                        @item.Mobile
+                    </td>
+                    <td class="text-center">
+                       @if (item.MobileBinding == (int)DotNet.SSO.Model.Enum.BindingEnum.Binded)
+                       {
+                           <span>已绑定</span> 
+                       }
+                       else 
+                       { 
+                           <span>未绑定</span>
+                       }
+                    </td>
+                    <td class="text-center">
+                        @item.Email
+                    </td>
+                     <td class="text-center">
+                       @if (item.EmailBinding == (int)DotNet.SSO.Model.Enum.BindingEnum.Binded)
+                       {
+                           <span>已绑定</span> 
+                       }
+                       else 
+                       { 
+                           <span>未绑定</span>
+                       }
+                    </td>
+                    <td class="text-center">
+                        @(item.CreateDate.ToString("yyyy-MM-dd hh:mm:ss"))
+                    </td>
+                    <td class="text-center">
+                        <a href="@Url.Content(string.Format("/Manager/Account/AccountDisplay?accountId={0}", item.AccountId))">
+                            查看</a> <a href="javascript:;"onclick="delDomain(@item.AccountId);">删除</a>
+                    </td>
+                </tr>
+            }
+        </table>
+        @Html.PagingOne(currentUrl, pageIndex, 12, Model.TotalRecord)
+    }
+</div>
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Content/js/account.js")"></script>
+}

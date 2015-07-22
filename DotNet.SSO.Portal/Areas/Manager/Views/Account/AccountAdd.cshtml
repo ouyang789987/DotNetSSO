@@ -1,0 +1,100 @@
+﻿@model DotNet.SSO.Model.ViewModel.AccountAddModel
+@{
+    ViewBag.Title = "添加单点登录帐号";
+    Layout = "~/Views/Shared/_LayoutAdd.cshtml";
+}
+<div class="listbox">
+    <div class="pagetitle">
+        添加单点登录帐号 <a href="@Url.Content("/Manager/Account/AccountList")">>>返回列表</a>
+    </div>
+    @using (Ajax.BeginForm("AccountAdd", "Account", new { }, new AjaxOptions() { HttpMethod = "Post", OnBegin = "startLoading('正在提交')", OnSuccess = "AfterAccountAdd" }, new { id = "AccountAdd" }))
+    { 
+  
+        <table class="table table-bordered table-condensed">
+            <tr>
+                <td colspan="2">
+                    添加单点登录帐号
+                </td>
+            </tr>
+            <tr>
+                <td class="item_title">
+                    登录帐号:
+                </td>
+                <td class="item_input">
+                    @Html.TextBoxFor(model => model.LoginName, new { @class = "form-control input-sm", @placeholder = "登录帐号" })
+                    @Html.ValidationMessageFor(model => model.LoginName)
+                </td>
+            </tr>
+            <tr>
+                <td class="item_title">
+                    密码:
+                </td>
+                <td class="item_input">
+                    @Html.PasswordFor(model => model.Password, new { @class = "form-control input-sm", @placeholder = "密码" })
+                    @Html.ValidationMessageFor(model => model.Password)
+                </td>
+            </tr>
+               <tr>
+                <td class="item_title">
+                    提交域:
+                </td>
+                <td class="item_input">
+                    @Html.DropDownListFor(model => model.SubmitDomainCode,ViewData["SubmitDomainCode"] as SelectList, new { @class = "form-control input-sm" })
+                    @Html.ValidationMessageFor(model => model.Password)
+                </td>
+            </tr>
+            <tr>
+                <td class="item_title">
+                    手机号码:
+                </td>
+                <td class="item_input">
+                    @Html.TextBoxFor(model => model.Mobile, new { @class = "form-control input-sm", @placeholder = "手机号码" })
+                    @Html.ValidationMessageFor(model => model.Mobile)
+                </td>
+            </tr>
+            <tr>
+                <td class="item_title">
+                    邮箱:
+                </td>
+                <td class="item_input">
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control input-sm", @placeholder = "邮箱" })
+                    @Html.ValidationMessageFor(model => model.Email)
+                </td>
+            </tr>
+              <tr>
+                <td class="item_title">
+                    安全密码:
+                </td>
+                <td class="item_input">
+                    @Html.PasswordFor(model => model.SafePassword, new { @class = "form-control input-sm", @placeholder = "安全密码" })
+                    @Html.ValidationMessageFor(model => model.Email)
+                </td>
+            </tr>
+            <tr>
+                <td class="item_title">
+                    备注:
+                </td>
+                <td class="item_input">
+                    @Html.TextAreaFor(model => model.ReMark, new { @rows = 3, @class = "form-control", @placeholder = "备注" })
+                    @*   @Html.ValidationMessageFor(model=>model.ReMark)*@
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td class="item_title">
+                </td>
+                <td class="item_input">
+                    <button type="submit" class="btn btn-primary btn-sm" style="width: 150px;">
+                        保存</button>
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Content/js/account.js")"></script>
+}

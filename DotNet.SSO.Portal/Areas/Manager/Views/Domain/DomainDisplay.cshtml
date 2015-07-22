@@ -1,0 +1,159 @@
+﻿@model DotNet.SSO.Model.Domain
+@{
+    ViewBag.Title = "域详情";
+    Layout = "~/Views/Shared/_LayoutDisplay.cshtml";
+}
+<div class="listbox">
+    <div class="pagetitle">
+        域详情 <a href="@Url.Content("/Manager/Domain/DomainList")">>>返回列表</a>
+    </div>
+    <table class="table table-bordered table-condensed">
+        <tr>
+            <td colspan="2">
+                域详情
+            </td>
+        </tr>
+        <tr>
+            <td class="item_title">
+                域名称:
+            </td>
+            <td class="item_input">
+                @Model.DomainName
+            </td>
+        </tr>
+        <tr>
+            <td class="item_title">
+                标识码:
+            </td>
+            <td class="item_input">
+                @Model.DomainCode
+            </td>
+        </tr>
+        <tr>
+            <td class="item_title">
+                域密钥:
+            </td>
+            <td class="item_input">
+                @Model.DomainKey
+            </td>
+        </tr>
+          <tr>
+            <td class="item_title">
+                域的密码:
+            </td>
+            <td class="item_input">
+                @Model.DomainPassword
+            </td>
+        </tr>
+        <tr>
+            <td class="item_title">
+                域地址:
+            </td>
+            <td class="item_input">
+                @Model.DomainUrl
+            </td>
+        </tr>
+        <tr>
+            <td class="item_title">
+                域级别:
+            </td>
+            <td class="item_input">
+                @{
+                    switch (Model.DomainLevel)
+                    {
+                        case 1:<span>一级域名</span>
+                            break;
+                        case 2:<span>二级域名</span>
+                            break;
+                        case 3:<span>三级域名</span>
+                            break;
+                        default: break;
+
+                    }
+                }
+            </td>
+        </tr>
+        <tr>
+            <td class="item_title">
+                上级域:
+            </td>
+            <td class="item_input">
+                @{
+                    <span>ID:@Model.ParentDomainId</span>
+                    if (Model.ParentDomainId > 0)
+                    {
+                    
+                    <a href="@Url.Content(string.Format("/Manager/Domain/DomainDisplay?domainId={0}", Model.ParentDomainId))">
+                        查看</a> 
+                    }
+                }
+            </td>
+        </tr>
+        <tr>
+            <td class="item_title">
+                是否启用:
+            </td>
+            <td class="item_input">
+                @if (Model.IsEnabled == (int)DotNet.SSO.Model.Enum.IsEnabledEnum.Enabled)
+                {
+                    <span>启用</span> 
+                }
+                else
+                { 
+                    <span>禁用</span> 
+                }
+            </td>
+        </tr>
+        <tr>
+            <td class="item_title">
+                是否单点登录:
+            </td>
+            <td class="item_input">
+                @if (Model.IsSSO == (int)DotNet.SSO.Model.Enum.IsSSOEnum.SSO)
+                {
+                    <span>单点登录</span> 
+                }
+                else
+                { 
+                    <span>非单点登录</span> 
+                }
+            </td>
+        </tr>
+        <tr>
+            <td class="item_title">
+                单点登录地址:
+            </td>
+            <td class="item_input">
+                @Model.SSOUrl
+            </td>
+        </tr>
+           <tr>
+            <td class="item_title">
+                Cookie存放地址:
+            </td>
+            <td class="item_input">
+                @Model.CookieDomain
+            </td>
+        </tr>
+            <tr>
+            <td class="item_title">
+                所在单点登录池:
+            </td>
+            <td class="item_input">
+                <a href="@Url.Content(string.Format("/Manager/SSOPool/SSOPoolDisplay?poolId={0}",Model.SSOPoolPoolId))">@Model.Pool.PoolName</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="item_title">
+                备注:
+            </td>
+            <td class="item_input">
+                @Model.ReMark
+            </td>
+        </tr>
+
+    </table>
+</div>
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Content/js/ssopool.js")"></script>
+}

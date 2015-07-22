@@ -1,0 +1,80 @@
+﻿@model DotNet.SSO.Model.SSOPoolDisplayModel
+@{
+    ViewBag.Title = "单点登录池详情";
+    Layout = "~/Views/Shared/_LayoutDisplay.cshtml";
+}
+<div class="listbox">
+    <div class="pagetitle">
+        单点登录池 <a href="@Url.Content("/Manager/SSOPool/SSOPoolList")">>>返回列表</a>
+    </div>
+    <table class="table table-bordered table-condensed">
+        <tr>
+            <td colspan="2">
+                单点登录池详情
+            </td>
+        </tr>
+        <tr>
+            <td class="item_title">
+                登录池名称:
+            </td>
+            <td class="item_input">
+                @Model.PoolName
+            </td>
+        </tr>
+        <tr>
+            <td class="item_title">
+                是否启用:
+            </td>
+            <td class="item_input">
+                @if (Model.IsEnabled == (int)DotNet.SSO.Model.Enum.IsEnabledEnum.Enabled)
+                {
+                    <span>启用</span> 
+                }
+                else
+                { 
+                    <span>禁用</span> 
+                }
+            </td>
+        </tr>
+        <tr>
+            <td class="item_title">
+                最大域数量:
+            </td>
+            <td class="item_input">
+                @Model.MaxAmount
+            </td>
+        </tr>
+        <tr>
+            <td class="item_title">
+                当前域数量:
+            </td>
+            <td class="item_input">
+                @Model.CurrentDomainCount
+            </td>
+        </tr>
+            <tr>
+            <td class="item_title">
+                登录池中的域:
+            </td>
+            <td class="item_input">
+               @{
+                   foreach (var item in Model.Domains)
+                   { 
+                       <a href="@Url.Content(string.Format("/Manager/Domain/DomainDisplay?domainId={0}",item.DomainId))" >@item.DomainName</a>
+                   }
+               }
+            </td>
+        </tr>
+        <tr>
+            <td class="item_title">
+                备注:
+            </td>
+            <td class="item_input">
+                @Model.ReMark
+            </td>
+        </tr>
+    </table>
+</div>
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Content/js/ssopool.js")"></script>
+}

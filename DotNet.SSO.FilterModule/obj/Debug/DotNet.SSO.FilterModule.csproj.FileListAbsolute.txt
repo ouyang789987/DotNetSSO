@@ -1,0 +1,5 @@
+F:\VS10_Program\SSO单点登录\DotNet.SSO\Src\DotNet.SSO.FilterModule.dll
+F:\VS10_Program\SSO单点登录\DotNet.SSO\Src\DotNet.SSO.FilterModule.pdb
+F:\VS10_Program\SSO单点登录\DotNet.SSO\DotNet.SSO.FilterModule\obj\Debug\DotNet.SSO.FilterModule.dll
+F:\VS10_Program\SSO单点登录\DotNet.SSO\DotNet.SSO.FilterModule\obj\Debug\DotNet.SSO.FilterModule.pdb
+F:\VS10_Program\SSO单点登录\DotNet.SSO\DotNet.SSO.FilterModule\obj\Debug\DotNet.SSO.FilterModule.csprojResolveAssemblyReference.cache

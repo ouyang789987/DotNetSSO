@@ -1,0 +1,49 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>单点登录系统</title>
+		<link rel="stylesheet" href="@Url.Content("/Content/css/style.css")" type="text/css" />		
+	</head>
+	<body class="loginpage">
+		<div class="loginbox">
+			<div class="loginboxinner">
+				<div class="logo">
+					<h1 class="logo"><img alt="logo" width="125px" height="60px" src="@Url.Content("/Content/img/logo.png")"></h1>
+					<span class="slogan">登录你的帐号</span>
+				</div>
+				<br style="clear:both" />
+				<div class="nousername">
+					<div class="loginmsg"></div>
+				</div>
+				<div class="username">
+					<div class="usernameinner">
+						<input type="text" name="loginStr" id="loginStr" placeholder="帐号/手机号码/邮箱" />
+					</div>
+				</div>
+				<div class="password">
+					<div class="passwordinner">
+						<input type="password" name="loginPwd" id="loginPwd" placeholder="密码" />
+					</div>
+				</div>
+		@*		<div class="code">
+					<div class="codeinner">
+						<input type="text" name="imgCode" id="imgCode" placeholder="验证码" />
+						<span class="codeimg" id="codeimg"><img src=""></span>
+					</div>
+				</div>*@
+              <button type="button" id="account_login">登录</button>
+			</div>
+		</div>
+	</body>
+</html>
+@Scripts.Render("~/bundles/jquery")
+<script type="text/javascript" src="@Url.Content("/Content/js/login.js")"></script>
+
+

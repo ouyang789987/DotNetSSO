@@ -1,0 +1,10 @@
+F:\SSO单点登录\DotNet.SSO\Src\DotNet.SSO.IBll.dll
+F:\SSO单点登录\DotNet.SSO\Src\DotNet.SSO.IBll.pdb
+F:\SSO单点登录\DotNet.SSO\DotNet.SSO.IBll\obj\Debug\DotNet.SSO.IBll.dll
+F:\SSO单点登录\DotNet.SSO\DotNet.SSO.IBll\obj\Debug\DotNet.SSO.IBll.pdb
+F:\SSO单点登录\DotNet.SSO\DotNet.SSO.IBll\obj\Debug\DotNet.SSO.IBll.csprojResolveAssemblyReference.cache
+F:\VS10_Program\SSO单点登录\DotNet.SSO\Src\DotNet.SSO.IBll.dll
+F:\VS10_Program\SSO单点登录\DotNet.SSO\Src\DotNet.SSO.IBll.pdb
+F:\VS10_Program\SSO单点登录\DotNet.SSO\DotNet.SSO.IBll\obj\Debug\DotNet.SSO.IBll.csprojResolveAssemblyReference.cache
+F:\VS10_Program\SSO单点登录\DotNet.SSO\DotNet.SSO.IBll\obj\Debug\DotNet.SSO.IBll.dll
+F:\VS10_Program\SSO单点登录\DotNet.SSO\DotNet.SSO.IBll\obj\Debug\DotNet.SSO.IBll.pdb

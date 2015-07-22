@@ -1,0 +1,9 @@
+F:\SSO单点登录\DotNet.SSO\Src\DotNet.SSO.DbUtils.dll
+F:\SSO单点登录\DotNet.SSO\Src\DotNet.SSO.DbUtils.pdb
+F:\SSO单点登录\DotNet.SSO\DotNet.SSO.DbUtils\obj\Debug\DotNet.SSO.DbUtils.dll
+F:\SSO单点登录\DotNet.SSO\DotNet.SSO.DbUtils\obj\Debug\DotNet.SSO.DbUtils.pdb
+F:\VS10_Program\SSO单点登录\DotNet.SSO\Src\DotNet.SSO.DbUtils.dll
+F:\VS10_Program\SSO单点登录\DotNet.SSO\Src\DotNet.SSO.DbUtils.pdb
+F:\VS10_Program\SSO单点登录\DotNet.SSO\DotNet.SSO.DbUtils\obj\Debug\DotNet.SSO.DbUtils.dll
+F:\VS10_Program\SSO单点登录\DotNet.SSO\DotNet.SSO.DbUtils\obj\Debug\DotNet.SSO.DbUtils.pdb
+F:\VS10_Program\SSO单点登录\DotNet.SSO\DotNet.SSO.DbUtils\obj\Debug\DotNet.SSO.DbUtils.csprojResolveAssemblyReference.cache

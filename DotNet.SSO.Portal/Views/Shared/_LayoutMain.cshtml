@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta content="" charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/css/base")
+    @RenderSection("css", required: false)
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+</head>
+<body>
+    @Html.Action("TopHeader", "Common", new { Area = "Manager" })
+    @Html.Action("TopNav", "Common", new { Area = "Manager" })
+    <!--左侧导航列表-->
+    <div class="main">
+        <!--左侧导航列表-->
+        <div class="left_nav" id="if_url">
+            <ul>
+            </ul>
+        </div>
+        <!--右侧框架-->
+        @*    <div class="centercontent">
+            <iframe src="" id="iframeleft" name="iframeleft"></iframe>
+        </div>*@
+        <div class="centercontent">
+            <!--tab libox-->
+            <div class="bq_nav" id="ifr_libox">
+            </div>
+            <!--iframe box-->
+            <div id="iframeleft">
+            </div>
+        </div>
+    </div>
+    @RenderBody()
+</body>
+</html>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/common")
+@RenderSection("scripts", required: false)
+@*@section scripts{
+    <script type="text/javascript">
+        $(function () {
+            $("#user_cash_index").addClass("action");
+            $("#cash_recharge").addClass("active");
+        });
+    </script>
+}*@ 

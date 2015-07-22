@@ -1,0 +1,139 @@
+﻿@model DotNet.SSO.Model.Account
+@{
+    ViewBag.Title = "单点登录帐号";
+    Layout = "~/Views/Shared/_LayoutDisplay.cshtml";
+}
+<div class="listbox">
+    <div class="pagetitle">
+        单点登录帐号详情 <a href="@Url.Content("/Manager/Account/AccountList")">>>返回列表</a>
+    </div>
+    <table class="table table-bordered table-condensed">
+        <tr>
+            <td colspan="2">
+                单点登录帐号详情
+            </td>
+        </tr>
+        <tr>
+            <td class="item_title">
+                帐号Id:
+            </td>
+            <td class="item_input">
+                @Model.AccountId
+            </td>
+        </tr>
+        <tr>
+            <td class="item_title">
+                OpenId:
+            </td>
+            <td class="item_input">
+                @Model.OpenId
+            </td>
+        </tr>
+        <tr>
+            <td class="item_title">
+                登录帐号:
+            </td>
+            <td class="item_input">
+                @Model.LoginName
+            </td>
+        </tr>
+        <tr>
+            <td class="item_title">
+                加密密码:
+            </td>
+            <td class="item_input">
+                @Model.Password
+            </td>
+        </tr>
+        <tr>
+            <td class="item_title">
+                密钥:
+            </td>
+            <td class="item_input">
+                @Model.EncryptKey
+            </td>
+        </tr>
+        <tr>
+            <td class="item_title">
+                安全秘密:
+            </td>
+            <td class="item_input">
+                @Model.SafePassword
+            </td>
+        </tr>
+        <tr>
+            <td class="item_title">
+                手机号码:
+            </td>
+            <td class="item_input">
+                @Model.Mobile
+            </td>
+        </tr>
+        <tr>
+            <td class="item_title">
+                是否绑定手机:
+            </td>
+            <td class="item_input">
+                @if (Model.MobileBinding == (int)DotNet.SSO.Model.Enum.BindingEnum.Binded)
+                {
+                    <span>已绑定</span> 
+                }
+                else
+                {
+                    <span>未绑定或等待验证</span> 
+                }
+            </td>
+        </tr>
+        <tr>
+            <td class="item_title">
+                Email邮箱:
+            </td>
+            <td class="item_input">
+                @Model.Email
+            </td>
+        </tr>
+        <tr>
+            <td class="item_title">
+                是否绑定Email邮箱:
+            </td>
+            <td class="item_input">
+                @if (Model.EmailBinding == (int)DotNet.SSO.Model.Enum.BindingEnum.Binded)
+                {
+                    <span>已绑定</span> 
+                }
+                else
+                {
+                    <span>未绑定或等待验证</span> 
+                }
+            </td>
+        </tr>
+        <tr>
+            <td class="item_title">
+                创建时间:
+            </td>
+            <td class="item_input">
+                @Model.CreateDate.ToString("yyyy-MM-dd hh:mm:ss")
+            </td>
+        </tr>
+        <tr>
+            <td class="item_title">
+                备注:
+            </td>
+            <td class="item_input">
+                @Model.ReMark
+            </td>
+        </tr>
+         <tr>
+            <td class="item_title">
+                提交的域:
+            </td>
+            <td class="item_input">
+                @ViewBag.SubmitDomain.DomainName
+            </td>
+        </tr>
+        
+    </table>
+</div>
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Content/js/account.js")"></script>
+}

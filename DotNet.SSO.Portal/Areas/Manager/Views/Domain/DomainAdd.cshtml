@@ -1,0 +1,140 @@
+﻿@model DotNet.SSO.Model.ViewModel.DomainAddModel
+@{
+    ViewBag.Title = "添加域";
+    Layout = "~/Views/Shared/_LayoutAdd.cshtml";
+}
+<div class="listbox">
+    <div class="pagetitle">
+        添加域 <a href="@Url.Content("/Manager/Domain/DomainList")">>>返回列表</a>
+    </div>
+   @* startLoading('正在加载')*@
+    @using (Ajax.BeginForm("DomainAdd", "Domain", new { }, new AjaxOptions() { HttpMethod = "Post", OnBegin = "startLoading('正在提交')", OnSuccess = "AfterDomainAdd" }, new { id = "DomainAdd" }))
+    { 
+        <table class="table table-bordered table-condensed">
+            <tr>
+                <td colspan="2">
+                    添加域
+                </td>
+            </tr>
+            <tr>
+                <td class="item_title">
+                    域名称:
+                </td>
+                <td class="item_input">
+                    @Html.TextBoxFor(model => model.DomainName, new { @class = "form-control input-sm", @placeholder = "域名称" })
+                    @Html.ValidationMessageFor(model => model.DomainName)
+                </td>
+            </tr>
+              <tr>
+                <td class="item_title">
+                    域密码:
+                </td>
+                <td class="item_input">
+                    @Html.PasswordFor(model => model.DomainPassword, new { @class = "form-control input-sm", @placeholder = "域密码" })
+                    @Html.ValidationMessageFor(model => model.DomainPassword)
+                </td>
+            </tr>
+            <tr>
+                <td class="item_title">
+                    域网址:
+                </td>
+                <td class="item_input">
+                    @Html.TextBoxFor(model => model.DomainUrl, new { @class = "form-control input-sm", @placeholder = "域网址" })
+                  @Html.ValidationMessageFor(model => model.DomainUrl)
+                </td>
+            </tr>
+            <tr>
+                <td class="item_title">
+                    域级别:
+                </td>
+                <td class="item_input">
+                    @Html.DropDownListFor(model => model.DomainLevel, ViewData["DomainLevel"] as List<SelectListItem>, new { })
+                    @Html.ValidationMessageFor(model => model.DomainUrl)
+                </td>
+            </tr>
+             <tr id="parent_domain">
+                <td class="item_title">
+                    上一级域:
+                </td>
+                <td class="item_input">
+                    <select id="ParentDomainId" name="ParentDomainId">
+                    <option value="0" selected="selected">无</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="item_title">
+                    是否启用:
+                </td>
+                <td class="item_input">
+                    <input name="IsEnabled" id="rad_enabled1" type="radio" value="@((int)DotNet.SSO.Model.Enum.IsEnabledEnum.Enabled)" checked=checked />启用
+                    <input name="IsEnabled" id="rad_enabled2" type="radio"  value="@((int)DotNet.SSO.Model.Enum.IsEnabledEnum.Disabled)" />禁用
+                    @Html.ValidationMessageFor(model => model.IsEnabled)
+                </td>
+            </tr>
+            <tr>
+                <td class="item_title">
+                    是否单点登录:
+                </td>
+                <td class="item_input">
+                    <input name="IsSSO" id="ssoRadio1" type="radio" value="@((int)DotNet.SSO.Model.Enum.IsSSOEnum.SSO)" checked=checked />启用单点登录
+                    <input name="IsSSO" id="ssoRadio2" type="radio"  value="@((int)DotNet.SSO.Model.Enum.IsSSOEnum.Single)" />不使用单点登录
+                    @Html.ValidationMessageFor(model => model.IsEnabled)
+                </td>
+            </tr>
+            <tr >
+                <td class="item_title">
+                    单点登录网址:
+                </td>
+                <td class="item_input">
+                    @Html.TextBoxFor(model => model.SSOUrl, new { @class = "form-control input-sm", @placeholder = "域网址" })
+                    @Html.ValidationMessageFor(model => model.SSOUrl)
+                </td>
+            </tr>
+            <tr id="tr_ssopool">
+                <td class="item_title">
+                    单点登录池:
+                </td>
+                <td class="item_input">
+                   @Html.DropDownListFor(model => model.SSOPoolPoolId, ViewData["SSOPoolPoolId"] as List<SelectListItem>, new { })
+                    @Html.ValidationMessageFor(model => model.SSOPoolPoolId)
+                </td>
+            </tr>
+              <tr>
+                <td class="item_title">
+                    Cookie存放的域名:
+                </td>
+                <td class="item_input">
+                    @Html.TextBoxFor(model => model.CookieDomain, new { @class = "form-control input-sm", @placeholder = "域网址" })
+                    @Html.ValidationMessageFor(model => model.CookieDomain)
+                </td>
+            </tr>
+            <tr>
+                <td class="item_title">
+                    备注:
+                </td>
+                <td class="item_input">
+                    @Html.TextAreaFor(model => model.ReMark, new { @rows = 3, @class = "form-control", @placeholder = "备注" })
+                    @*   @Html.ValidationMessageFor(model=>model.ReMark)*@
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td class="item_title">
+                </td>
+                <td class="item_input">
+                    <button type="submit" class="btn btn-primary btn-sm" style="width: 150px;">
+                        保存</button>
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Content/js/domain.js")"></script>
+}

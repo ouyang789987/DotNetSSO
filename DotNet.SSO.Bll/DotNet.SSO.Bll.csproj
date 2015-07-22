@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{70345DC3-A0E1-47AC-B5BC-EB33432938AE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DotNet.SSO.Bll</RootNamespace>
+    <AssemblyName>DotNet.SSO.Bll</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Src\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DotNet.Utils">
+      <HintPath>..\Utils\DotNet.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountService.cs" />
+    <Compile Include="DomainService.cs" />
+    <Compile Include="Manager\ManagerService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SSOAuthService.cs" />
+    <Compile Include="SSOPoolService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DotNet.SSO.BllUtility\DotNet.SSO.BllUtility.csproj">
+      <Project>{D91B0144-4F3D-479B-811A-50DB473EB7C5}</Project>
+      <Name>DotNet.SSO.BllUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DotNet.SSO.Dal\DotNet.SSO.Dal.csproj">
+      <Project>{74DDD41E-BC53-492C-A74E-912257514050}</Project>
+      <Name>DotNet.SSO.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DotNet.SSO.DbUtils\DotNet.SSO.DbUtils.csproj">
+      <Project>{A6C7FBC5-1A20-444B-AF82-E4B0D9B4EF49}</Project>
+      <Name>DotNet.SSO.DbUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DotNet.SSO.IBll\DotNet.SSO.IBll.csproj">
+      <Project>{8D30D89E-9E41-4ABE-903C-04FEB07B67B0}</Project>
+      <Name>DotNet.SSO.IBll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DotNet.SSO.IDal\DotNet.SSO.IDal.csproj">
+      <Project>{96477070-9328-42A6-8157-F9F189AE05A3}</Project>
+      <Name>DotNet.SSO.IDal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DotNet.SSO.Model\DotNet.SSO.Model.csproj">
+      <Project>{4C626D4F-7CC4-4E93-AC7F-7BA461A47D21}</Project>
+      <Name>DotNet.SSO.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DotNet.SSO.Utilities\DotNet.SSO.Utilities.csproj">
+      <Project>{1C08AD41-EB7C-4A43-A11F-3125D69F0658}</Project>
+      <Name>DotNet.SSO.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

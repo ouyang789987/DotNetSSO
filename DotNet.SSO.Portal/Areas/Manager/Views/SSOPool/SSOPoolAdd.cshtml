@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "添加单点登录池";
+    Layout = "~/Views/Shared/_LayoutAdd.cshtml";
+}
+@model DotNet.SSO.Model.ViewModel.SSOPoolAddModel
+<div class="listbox">
+    <div class="pagetitle">
+        添加单点登录池 <a href="@Url.Content("/Manager/SSOPool/SSOPoolList")">>>返回列表</a>
+    </div>
+    @using (Ajax.BeginForm("SSOPoolAdd", "SSOPool", new { }, new AjaxOptions() { HttpMethod = "Post", OnBegin = "startLoading('正在加载')", OnSuccess = "AfterPoolAdd" }, new { id = "SSOPoolAdd" }))
+    { 
+        <table class="table table-bordered table-condensed">
+            <tr>
+                <td colspan="2">
+                    添加单点登录池
+                </td>
+            </tr>
+            <tr>
+                <td class="item_title">
+                    登录池名称:
+                </td>
+                <td class="item_input">
+                @Html.TextBoxFor(model => model.PoolName, new { @class = "form-control input-sm", @placeholder = "登录池名称" })
+                @Html.ValidationMessageFor(model=>model.PoolName)
+                </td>
+            </tr>
+            <tr>
+                <td class="item_title">
+                    最大域的数量:
+                </td>
+                <td class="item_input">
+                    @Html.TextBoxFor(model => model.MaxAmount, new { @class = "form-control input-sm", @placeholder = "最大域的数量" })
+                    @Html.ValidationMessageFor(model=>model.MaxAmount)
+                </td>
+            </tr>
+               <tr>
+                <td class="item_title">
+                    是否启用:
+                </td>
+                <td class="item_input">
+                    <input name="IsEnabled" id="Radio1" type="radio" value="@((int)DotNet.SSO.Model.Enum.IsEnabledEnum.Enabled)" checked=checked />启用
+                    <input name="IsEnabled" id="Radio2" type="radio"  value="@((int)DotNet.SSO.Model.Enum.IsEnabledEnum.Disabled)" />禁用
+                    @Html.ValidationMessageFor(model=>model.MaxAmount)
+                </td>
+            </tr>
+
+            <tr>
+                <td class="item_title">
+                    备注:
+                </td>
+                <td class="item_input">
+                  @Html.TextAreaFor(model => model.ReMark, new { @rows = 3, @class = "form-control", @placeholder="备注" })
+               @*   @Html.ValidationMessageFor(model=>model.ReMark)*@
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td class="item_title">
+                </td>
+                <td class="item_input">
+                    <button type="submit" class="btn btn-primary btn-sm" style="width: 150px;">
+                        保存</button>
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+@section scripts{
+ <script type="text/javascript" src="@Url.Content("~/Content/js/ssopool.js")"></script>
+}

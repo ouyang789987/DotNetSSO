@@ -1,0 +1,10 @@
+F:\SSO单点登录\DotNet.SSO\Src\DotNet.SSO.BllUtility.dll
+F:\SSO单点登录\DotNet.SSO\Src\DotNet.SSO.BllUtility.pdb
+F:\SSO单点登录\DotNet.SSO\DotNet.SSO.BllUtility\obj\Debug\DotNet.SSO.BllUtility.csprojResolveAssemblyReference.cache
+F:\SSO单点登录\DotNet.SSO\DotNet.SSO.BllUtility\obj\Debug\DotNet.SSO.BllUtility.dll
+F:\SSO单点登录\DotNet.SSO\DotNet.SSO.BllUtility\obj\Debug\DotNet.SSO.BllUtility.pdb
+F:\VS10_Program\SSO单点登录\DotNet.SSO\Src\DotNet.SSO.BllUtility.dll
+F:\VS10_Program\SSO单点登录\DotNet.SSO\Src\DotNet.SSO.BllUtility.pdb
+F:\VS10_Program\SSO单点登录\DotNet.SSO\DotNet.SSO.BllUtility\obj\Debug\DotNet.SSO.BllUtility.csprojResolveAssemblyReference.cache
+F:\VS10_Program\SSO单点登录\DotNet.SSO\DotNet.SSO.BllUtility\obj\Debug\DotNet.SSO.BllUtility.dll
+F:\VS10_Program\SSO单点登录\DotNet.SSO\DotNet.SSO.BllUtility\obj\Debug\DotNet.SSO.BllUtility.pdb

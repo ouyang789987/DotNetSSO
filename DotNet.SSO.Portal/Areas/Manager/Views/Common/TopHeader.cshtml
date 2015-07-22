@@ -1,0 +1,12 @@
+﻿<!--头部-->
+<div class="topheader">
+    <h1 class="logo">
+        <img src="@Url.Content("/Content/img/logo.png")" width="82" height="39"></h1>
+    <span class="slogan" style="font-weight: 800;">SSO单点登录系统</span>
+    <div class="pd pull-right">
+        欢迎<span>@ViewBag.CurrentManager.LoginName</span>登录系统 <b>|</b> <a href="@Url.Content("/Manager/Home/Index")">网站首页</a>
+        <b>|</b> <a data-toggle="modal" data-target="#edit_password">修改密码</a> <b>|</b> <a
+            href="">退出登录</a>
+    </div>
+    <br style="clear: both" />
+</div>

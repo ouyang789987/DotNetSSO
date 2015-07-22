@@ -1,0 +1,169 @@
+﻿@{
+    ViewBag.Title = "域管理列表";
+    Layout = "~/Views/Shared/_LayoutList.cshtml";
+}
+@model DotNet.SSO.Model.PagingModel<DotNet.SSO.Model.Domain>
+@using DotNet.SSO.Portal
+<div class="listbox">
+    <div class="pagetitle">
+        域管理</div>
+    <div class="buttonz">
+        <a href="@Url.Content("/Manager/Domain/DomainAdd")" class="btn btn-success btn-sm">增加域</a>
+        @* <a href="javascript:;" class="btn btn-danger btn-sm" onclick="delall_user();">批量删除</a>*@
+    </div>
+    <div class="search_row">
+        <div class="form-inline">
+            <form action="@Url.Content("/Manager/Domain/DomainSearch")" method="post">
+            <div class="form-group">
+                <label>
+                    域名：</label>
+                <input type="text" class="form-control  input-sm" id="domainName" name="domainName" />
+            </div>
+            <div class="form-group">
+                <label>
+                    域标识：</label>
+                <input type="text" class="form-control  input-sm" id="domainCode" name="domainCode" />
+            </div>
+            <div class="form-group">
+                <label>
+                    域地址：</label>
+                <input type="text" class="form-control  input-sm" id="domainUrl" name="domainUrl" />
+            </div>
+            <div class="form-group">
+                <label>
+                    是否启用：</label>
+                <select id="isEnabled" name="isEnabled" class="form-control input-sm">
+                    <option value="0" selected="selected">全部</option>
+                    <option value="@((int)DotNet.SSO.Model.Enum.IsEnabledEnum.Enabled)" >启用</option>
+                    <option value="@((int)DotNet.SSO.Model.Enum.IsEnabledEnum.Disabled)" >禁用</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>
+                    域级别：</label>
+                <select id="domainLevel" name="domainLevel" class="form-control input-sm">
+                    <option value="0" selected="selected">全部</option>
+                    <option value="1">一级域</option>
+                    <option value="2">二级域</option>
+                    <option value="3">三级域</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>
+                    单点登录：</label>
+                <select id="isSSO" name="isSSO" class="form-control input-sm">
+                    <option value="0" selected="selected">全部</option>
+                    <option value="@((int)DotNet.SSO.Model.Enum.IsSSOEnum.SSO)" >单点登录</option>
+                    <option value="@((int)DotNet.SSO.Model.Enum.IsSSOEnum.Single)" >非单点登录</option>
+                </select>
+            </div>
+            <input id="btnSubmit" type="submit" value="搜索" class="btn btn-default  btn-sm" />
+            </form>
+        </div>
+    </div>
+    @{
+        string currentUrl = DotNet.SSO.BllUtility.ParamHelper.GetInstance().GetRequestParamWithOutPage();
+        int pageIndex = DotNet.Utils.Untility.ConvertFactory.ToInt32(HttpUtility.UrlEncode(Request["page"]), 1);
+        <table class="table table-bordered table-condensed">
+            <tr>
+                <th width="1%">
+                    <input type="checkbox" id="checkall">
+                </th>
+                <th width="5%">
+                    ID
+                </th>
+                <th width="10%">
+                    域名称
+                </th>
+                <th width="15%">
+                    标识码
+                </th>
+                <th width="15%">
+                    Url地址
+                </th>
+                <th width="5%">
+                    域名级别
+                </th>
+                <th width="5%">
+                    是否启用
+                </th>
+                <th width="10%">
+                    是否单点登录
+                </th>
+                <th width="15%">
+                    单点登录地址
+                </th>
+                <th width="20%">
+                    操作
+                </th>
+            </tr>
+            @foreach (var item in Model.Data)
+            {
+                <tr>
+                    <td class="text-center">
+                        <input type="checkbox" name="checklist" id="chk_@item.DomainId" value="@item.DomainId" />
+                    </td>
+                    <td class="text-center">
+                        @item.DomainId
+                    </td>
+                    <td class="text-center">
+                        @item.DomainName
+                    </td>
+                    <td class="text-center">
+                        @item.DomainCode
+                    </td>
+                    <td class="text-center">
+                        @item.DomainUrl
+                    </td>
+                    <td class="text-center">
+                        @{
+                switch (item.DomainLevel)
+                {
+                    case 1:<span>一级域名</span>;
+                                            break;
+                    case 2:<span>二级域名</span>;
+                                            break;
+                    case 3:<span>三级域名</span>;
+                                            break;
+                    default:<span>未知</span>
+                                            break;
+                }
+                        }
+                    </td>
+                    <td class="text-center">
+                        @if (item.IsEnabled == (int)DotNet.SSO.Model.Enum.IsEnabledEnum.Enabled)
+                        {
+                            <a href="javascript:;" onclick="CloseDomain(@item.DomainId);">启用</a>
+                        }
+                        else if (item.IsEnabled == (int)DotNet.SSO.Model.Enum.IsEnabledEnum.Disabled)
+                        {
+                            <a href="javascript:;" onclick="OpenDomain(@item.DomainId);">禁用</a>
+                        }
+                    </td>
+                    <td class="text-center">
+                        @if (item.IsSSO == (int)DotNet.SSO.Model.Enum.IsSSOEnum.SSO)
+                        {
+                            <span>单点登录</span>
+                        }
+                        else
+                        {
+                            <span>非单点登录</span>
+                        }
+                    </td>
+                    <td class="text-center">
+                        @item.SSOUrl
+                    </td>
+                    <td class="text-center">
+                        <a href="@Url.Content(string.Format("/Manager/Domain/DomainDisplay?domainId={0}", item.DomainId))">
+                            查看</a> <a href="@Url.Content(string.Format("/Manager/Domain/DomainEdit?domainId={0}", item.DomainId))">
+                                编辑</a> <a href="javascript:;"onclick="delDomain(@item.DomainId);">删除</a>
+                    </td>
+                </tr>
+            }
+        </table>
+        @Html.PagingOne(currentUrl, pageIndex, 12, Model.TotalRecord)
+    }
+</div>
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Content/js/domain.js")"></script>
+}

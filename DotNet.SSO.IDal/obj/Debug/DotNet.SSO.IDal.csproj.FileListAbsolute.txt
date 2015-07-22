@@ -1,0 +1,10 @@
+F:\SSO单点登录\DotNet.SSO\Src\DotNet.SSO.IDal.dll
+F:\SSO单点登录\DotNet.SSO\Src\DotNet.SSO.IDal.pdb
+F:\SSO单点登录\DotNet.SSO\DotNet.SSO.IDal\obj\Debug\DotNet.SSO.IDal.csprojResolveAssemblyReference.cache
+F:\SSO单点登录\DotNet.SSO\DotNet.SSO.IDal\obj\Debug\DotNet.SSO.IDal.dll
+F:\SSO单点登录\DotNet.SSO\DotNet.SSO.IDal\obj\Debug\DotNet.SSO.IDal.pdb
+F:\VS10_Program\SSO单点登录\DotNet.SSO\Src\DotNet.SSO.IDal.dll
+F:\VS10_Program\SSO单点登录\DotNet.SSO\Src\DotNet.SSO.IDal.pdb
+F:\VS10_Program\SSO单点登录\DotNet.SSO\DotNet.SSO.IDal\obj\Debug\DotNet.SSO.IDal.csprojResolveAssemblyReference.cache
+F:\VS10_Program\SSO单点登录\DotNet.SSO\DotNet.SSO.IDal\obj\Debug\DotNet.SSO.IDal.dll
+F:\VS10_Program\SSO单点登录\DotNet.SSO\DotNet.SSO.IDal\obj\Debug\DotNet.SSO.IDal.pdb

@@ -1,0 +1,4 @@
+F:\VS10_Program\SSO单点登录\DotNet.SSO\Src\DotNet.SSO.Utilities.dll
+F:\VS10_Program\SSO单点登录\DotNet.SSO\Src\DotNet.SSO.Utilities.pdb
+F:\VS10_Program\SSO单点登录\DotNet.SSO\DotNet.SSO.Utilities\obj\Debug\DotNet.SSO.Utilities.dll
+F:\VS10_Program\SSO单点登录\DotNet.SSO\DotNet.SSO.Utilities\obj\Debug\DotNet.SSO.Utilities.pdb

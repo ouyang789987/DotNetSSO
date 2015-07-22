@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4C626D4F-7CC4-4E93-AC7F-7BA461A47D21}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DotNet.SSO.Model</RootNamespace>
+    <AssemblyName>DotNet.SSO.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Src\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DotNet.Utils">
+      <HintPath>..\Utils\DotNet.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account.cs" />
+    <Compile Include="ApiModel\AccountAdd.cs" />
+    <Compile Include="ApiModel\AccountLogin.cs" />
+    <Compile Include="ApiModel\OpenCache.cs" />
+    <Compile Include="Base\VerifyModel.cs" />
+    <Compile Include="Domain.cs" />
+    <Compile Include="Enum\AccountVerifyTypeEnum.cs" />
+    <Compile Include="Enum\BindingEnum.cs" />
+    <Compile Include="Enum\DelFlagEnum.cs" />
+    <Compile Include="Enum\IsEnabledEnum.cs" />
+    <Compile Include="Base\JsonModel.cs" />
+    <Compile Include="Base\PagingModel.cs" />
+    <Compile Include="Enum\IsSSOEnum.cs" />
+    <Compile Include="Enum\LoginTypeEnum.cs" />
+    <Compile Include="Enum\UnifiedAccountEnum.cs" />
+    <Compile Include="Manager\Manager.cs" />
+    <Compile Include="Manager\ManagerLoginModel.cs" />
+    <Compile Include="Parameter\AccountParam.cs" />
+    <Compile Include="Parameter\AccountSingleParam.cs" />
+    <Compile Include="Parameter\DomainParam.cs" />
+    <Compile Include="Parameter\DomainSingleParam.cs" />
+    <Compile Include="Parameter\Manager\ManagerSingleParam.cs" />
+    <Compile Include="Parameter\ParameterContext.cs" />
+    <Compile Include="Parameter\SSOPoolParam.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RetuenModel\BaseReturn.cs" />
+    <Compile Include="SSOPool.cs" />
+    <Compile Include="SSOPoolDisplayModel.cs" />
+    <Compile Include="ViewModel\AccountAddModel.cs" />
+    <Compile Include="ViewModel\AccountDeleteModel.cs" />
+    <Compile Include="ViewModel\DomainAddModel.cs" />
+    <Compile Include="ViewModel\DomainEditModel.cs" />
+    <Compile Include="ViewModel\SSOLoginModel.cs" />
+    <Compile Include="ViewModel\SSOPoolAddModel.cs" />
+    <Compile Include="ViewModel\SSOPoolEditModel.cs" />
+    <Compile Include="WebMenu.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
